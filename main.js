@@ -1,14 +1,14 @@
 // Rock, Paper and Scissors Game between User and Computer 
 
 const getUserChoice = function (userInput) {
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput == 'bomb') {
         return userInput;
     } else {
         console.log("Invalid choice !!");
     }
 }
 
-let userInput = 'paper';
+let userInput = prompt();
 userInput = userInput.toLowerCase();
 
 let userChoice = getUserChoice(userInput);
@@ -34,10 +34,12 @@ let computerChoice = getComputerChoice();
 const determineWinner = function (userChoice, computerChoice) {
     console.log("User choice:", userChoice);
     console.log("Computer choice:", computerChoice);
-    if (userChoice === computerChoice) {
+    if (userChoice == 'bomb') {
+        return "User won";
+    }
+    else if (userChoice === computerChoice) {
         return "Tie game!!";
     }
-
     else {
         if (userChoice === 'rock') {
             if (computerChoice === 'paper') {
